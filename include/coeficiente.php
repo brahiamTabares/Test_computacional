@@ -27,11 +27,10 @@
     Y:
     <select name="comboY">
         <!-- Opciones de la lista -->
-
-            <optgroup label="Preguntas">
-                <option value="P1"> Pregunta 01 </option>
+        <optgroup label="Preguntas">
+               <option value="P1"> Pregunta 01 </option>
                 <option value="P2"> Pregunta 02 </option>
-                <option value="P3"> Pregunta 03 </option><!-- Opción por defecto -->
+                <option value="P3" selected> Pregunta 03 </option><!-- Opción por defecto -->
     </select>
 
 </div>
@@ -49,30 +48,79 @@ if (isset($_POST['calcular_coeficiente'])) {
 
     $valorX = $_POST['comboX'];
     $valorY = $_POST['comboY'];
+    //$arregloX= array(2,4,5,6,4,7,8,5,6,7);
+    //$arregloY= array(3,2,6,5,3,6,5,4,4,5);
+    //$arregloX= array(3,6,9);
+    //$arregloY= array(70,75,80);
+    $arregloX=[];
+    $arregloY=[];
+
     //Obtener las consultas
     $consultaX = "select puntuacion from resultado where ejercicio='$valorX';";
     $consultaY = "select puntuacion from calificacion where pregunta='$valorY';";
 
-    //Obtener la media
+    //Traer los datos de la bases de datos y meterlos en un array
     if ($resultadoX = mysqli_query($conn, $consultaX)) {
-        $mediaX= obtenerMedia($resultadoX);
-    }
-    if ($resultadoY = mysqli_query($conn, $consultaY)) {
-        $mediaY= obtenerMedia($resultadoY);
+        $i=0;
+        while ($filaX = mysqli_fetch_row($resultadoX)) {
+            $arregloX[$i]=$filaX[0];
+            $i++;
+        }
     }
 
-    echo $mediaX."\n".$mediaY;
+    if ($resultadoY = mysqli_query($conn, $consultaY)) {
+        $j=0;
+        while ($filaY = mysqli_fetch_row($resultadoY)) {
+            $arregloY[$j]=$filaY[0];
+            $j++;
+        }
+    }
+
+    $longitudX = obtenerLongitud($arregloX);
+    $longitudY = obtenerLongitud($arregloY);
+
+    $mediaX=obtenerMedia($arregloX,$longitudX);
+    $mediaY=obtenerMedia($arregloY,$longitudY);
+
+    $sumatoria=obtenerSumatoria($mediaX,$arregloX,$mediaY,$arregloY);
+
+    $sumatoriaX=obtenerSumatoriaCuadrada($mediaX,$arregloX);
+    $sumatoriaY=obtenerSumatoriaCuadrada($mediaY,$arregloY);
+
+    $correlacion=$sumatoria/sqrt($sumatoriaX*$sumatoriaY);
+    echo $correlacion;
 }
-desconectar($conn);
-function obtenerMedia($arreglo){
+function obtenerLongitud($arreglo){
+ return count($arreglo);
+}
+
+function obtenerMedia($arreglo,$longitud){
     $valor=0;
-    $longitud=0;
-    while ($fila = mysqli_fetch_row($arreglo)) {
-        $valor=$valor +$fila[0];
-        $longitud++;
+    for ($i=0; $i < count($arreglo);$i++){
+       $valor=$valor + $arreglo[$i];
     }
     return $valor/$longitud;
 }
+function obtenerSumatoria($mX,$arregloX,$mY,$arregloY){
+    $suma=0.0;
+    for ($i=0; $i < count($arregloX);$i++){
+        $suma=$suma + (($arregloX[$i]-$mX)*($arregloY[$i]-$mY));
+    }
+    return $suma;
+}
+
+function obtenerSumatoriaCuadrada($media,$arreglo){
+    $suma=0.0;
+
+
+    for ($i=0; $i < count($arreglo);$i++){
+        $aux=($arreglo[$i]-$media)*($arreglo[$i]-$media);
+        $suma=$suma+$aux;
+    }
+    return $suma;
+}
+
+desconectar($conn);
 ?>
 <!doctype html>
 <html lang="en">
