@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="Refresh" content="http://localhost/php_test_computacional/GUI/ejercicios/ejercicio1.html">
+  <title>Title</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <center>
+    <table style="border: dashed" height="400" width="400">
+      <tr>
+        <th>
+          <img id="00" src="imagenes/mario.jpg" style="border: solid" height="100" width="100" />
+        </th>
+        <th>
+          <img id="01" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="02" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="03" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <img id="10" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="11" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="12" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="13" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <img id="20" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="21" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="22" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="23" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <img id="30" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="31" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="32" src="imagenes/cielo.jpg" height="100" width="100" />
+        </th>
+        <th>
+          <img id="33" src="imagenes/princesa peach.png" style="border: solid" height="100" width="100" />
+        </th>
+      </tr>
+    </table>
+
+    <div>
+      <h1>
+        Ejercicio #1:
+        <button className="boton_arriba" onClick="moverTo(x,y-1,letraA)">
+          <img type="image" src="imagenes/arriba.jpg" style="border: double" height="40" width="40" />
+        </button>
+
+        <button className="boton_izquierda" onClick="moverTo(x-1,y,letraB);">
+          <img type="image" src="imagenes/izquierda.jpg" style="border: double" height="40" width="40" />
+        </button>
+
+        <button className="boton_abajo" onClick="moverTo(x,y+1,letraC);">
+          <img type="image" src="imagenes/abajo.jpg" style="border: double" height="40" width="40" />
+        </button>
+
+        <button className="boton_derecha" onClick="moverTo(x+1,y,letraD)">
+          <img type="image" src="imagenes/derecha.jpg" style="border: double" height="40" width="40" />
+        </button>
+      </h1>
+    </div>
+    <div>
+      <table id="resultado">
+        <tr id="resultado_flechas">
+          <th>
+            <img id="010" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="011" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="012" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="013" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="014" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="015" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="016" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="017" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="018" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="019" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="020" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="021" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="022" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="023" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="024" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+          <th>
+            <img id="025" src="imagenes/ladrillo.jpg" height="25" width="25" />
+          </th>
+        </tr>
+      </table>
+    </div>
+    <div class="prueba">
+      <button id="borrar">Borrar</button>
+      <input type="button" value="Validar" style="margin-top: 4px" id="validar" onclick="validar(x,y)" />
+
+      <form type="hidden" action="../../include/GuardarEjercicio.php" method="POST">
+
+        <input type="submit" value="Siguiente" style="margin-top: 4px" id="siguiente" name="siguiente"/>
+        <input type="hidden" id="POST-puntuacion" type="number" name="POST-puntuacion">
+        <input type="hidden" id="ejercicio" type="text" name="ejercicio">
+
+      </form>
+      
+    </div>
+  </center>
+  <script>
+    let inicioF = 0;
+    let inicioC = 0;
+    let x = -1;
+    let y = -1;
+    let maxX = 3;
+    let maxY = 3;
+    let original = null;
+    let cont = 10;
+    let letraA = "A";
+    let letraB = "B";
+    let letraC = "C";
+    let letraD = "D";
+    let bandera = true;
+    var array = Array(4);
+    let resultado;
+    
+    for (let index = 0; index < array.length; index++) {
+      array[index] = new Array(4);
+
+    }
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j < array.length; j++) {
+        array[i][j] = false;
+
+      }
+    }
+
+    document.getElementById('siguiente').style.visibility = "hidden";
+
+
+    function moverTo(nx, ny, letra) {
+
+      if (nx == 0 && ny == 0) {
+        let cuadro = document.getElementById("" + ny + nx); //Obtengo el id
+        if (cuadro != null) {
+          original = cuadro.getAttribute("src");
+          cuadro.setAttribute("src", "imagenes/mario.jpg");
+          x = nx;
+          y = ny;
+        }
+
+      } else {
+        let flecha = document.getElementById("0" + cont);
+
+        if (nx >= 0 && nx <= maxX && ny >= 0 && ny <= maxY && cont <= 25 && bandera) {
+          if (letra == "A" && flecha != null) {
+            original = flecha.getAttribute("src");
+            flecha.setAttribute("src", "imagenes/arriba.jpg");
+          } else {
+            if (letra == "B" && flecha != null) {
+              original = flecha.getAttribute("src");
+              flecha.setAttribute("src", "imagenes/izquierda.jpg");
+            } else {
+              if (letra == "C" && flecha != null) {
+                original = flecha.getAttribute("src");
+                flecha.setAttribute("src", "imagenes/abajo.jpg");
+              } else {
+                if (letra == "D" && flecha != null) {
+                  original = flecha.getAttribute("src");
+                  flecha.setAttribute("src", "imagenes/derecha.jpg");
+                }
+              }
+            }
+          }
+          array[ny][nx] = true;
+        } else {
+          if (letra == "A" && flecha != null) {
+            original = flecha.getAttribute("src");
+            flecha.setAttribute("src", "imagenes/arriba.jpg");
+          } else {
+            if (letra == "B" && flecha != null) {
+              original = flecha.getAttribute("src");
+              flecha.setAttribute("src", "imagenes/izquierda.jpg");
+            } else {
+              if (letra == "C" && flecha != null) {
+                original = flecha.getAttribute("src");
+                flecha.setAttribute("src", "imagenes/abajo.jpg");
+              } else {
+                if (letra == "D" && flecha != null) {
+                  original = flecha.getAttribute("src");
+                  flecha.setAttribute("src", "imagenes/derecha.jpg");
+                }
+              }
+            }
+          }
+          bandera = false;
+        }
+
+        x = nx;
+        y = ny;
+        cont++;
+      }
+
+    }
+
+    function marcar() {
+      for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+          if (array[i][j]) {
+
+            let cuadro = document.getElementById("" + i + j); //Obtengo el id
+
+            if (cuadro != null) {
+              original = cuadro.getAttribute("src");
+              cuadro.setAttribute("src", "imagenes/estrella.png");
+            }
+          }
+        }
+
+      }
+    }
+
+    function validar(columna, fila) {
+      document.getElementById('borrar').style.visibility = "hidden";//Ocultar
+      document.getElementById('validar').style.visibility = "hidden";//ocultar
+      document.getElementById('siguiente').style.visibility = "visible";//mostrar
+
+      if (bandera && 3 == fila && 3 == columna) {
+        alert("Correcto");//MANDAR A PHP
+        respuesta=1;
+      } else {
+        alert("Incorrecto");//MANDAR A PHP
+        respuesta=0;
+      }
+      document.getElementById('POST-puntuacion').value = respuesta;
+      document.getElementById('ejercicio').value = '1';
+      marcar();
+    }
+    let refresh = document.getElementById('borrar');
+          refresh.addEventListener('click', _ => {
+            location.reload();
+})
+    
+    moverTo(inicioC, inicioF);
+  </script>
+</body>
+
+</html>

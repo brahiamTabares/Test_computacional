@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Refresh" content="http://localhost/php_test_computacional/GUI/encuesta/encuesta.html">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="../../include/GuardarEncuesta.php" method="POST">
+    <div>
+        <!-- Lista de selección -->
+        PREGUNTA 1 :
+        <select name="comboPregunta1">
+            <!-- Opciones de la lista -->
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"selected> 5 </option><!-- Opción por defecto -->
+        </select>
+    </div>
+    <div>
+        <!-- Lista de selección -->
+        PREGUNTA 2:
+        <select name="comboPregunta2">
+            <!-- Opciones de la lista -->
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"selected> 5 </option><!-- Opción por defecto -->
+        </select>
+    </div>
+    <div>
+        <!-- Lista de selección -->
+        PREGUNTA 3:
+        <select name="comboPregunta3">
+            <!-- Opciones de la lista -->
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"selected> 5 </option><!-- Opción por defecto -->
+        </select>
+    </div>
+    <input type="submit" value="Enviar encuesta" style="margin-top: 4px" name="enviar_encuesta">
+</form>
+
+</body>
+</html>
