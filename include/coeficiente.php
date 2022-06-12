@@ -20,10 +20,6 @@
         <option value="E3"> Ejercicio 03 </option>
         <option value="E4"> Ejercicio 04 </option>
         <option value="E5"> Ejercicio 05 </option>
-            <optgroup label="Preguntas">
-        <option value="P1" selected> Pregunta 01 </option>
-        <option value="P2"> Pregunta 02 </option>
-        <option value="P3"> Pregunta 03 </option><!-- Opción por defecto -->
     </select>
 </div>
 <div>
@@ -31,12 +27,7 @@
     Y:
     <select name="comboY">
         <!-- Opciones de la lista -->
-        <optgroup label="Ejercicios">
-            <option value="E1"selected> Ejercicio 01 </option>
-            <option value="E2"> Ejercicio 02 </option>
-            <option value="E3"> Ejercicio 03 </option>
-            <option value="E4"> Ejercicio 04 </option>
-            <option value="E5"> Ejercicio 05 </option>
+
             <optgroup label="Preguntas">
                 <option value="P1"> Pregunta 01 </option>
                 <option value="P2"> Pregunta 02 </option>
@@ -58,22 +49,30 @@ if (isset($_POST['calcular_coeficiente'])) {
 
     $valorX = $_POST['comboX'];
     $valorY = $_POST['comboY'];
+    //Obtener las consultas
+    $consultaX = "select puntuacion from resultado where ejercicio='$valorX';";
+    $consultaY = "select puntuacion from calificacion where pregunta='$valorY';";
 
-    if(substr( $valorX, 0,1  ) == 'E'){
-        $consultaX = "select puntuacion from resultado where ejercicio='$valorX';";
-    }else{
-        $consultaX = "select puntuacion from calificacion where pregunta='$valorX';";
+    //Obtener la media
+    if ($resultadoX = mysqli_query($conn, $consultaX)) {
+        $mediaX= obtenerMedia($resultadoX);
     }
-    if(substr( $valorY, 0,1  ) == 'E'){
-        $consultaY = "select puntuacion from resultado where ejercicio='$valorY';";
-    }else{
-        $consultaY = "select puntuacion from calificacion where pregunta='$valorY';";
+    if ($resultadoY = mysqli_query($conn, $consultaY)) {
+        $mediaY= obtenerMedia($resultadoY);
     }
 
-    $variable= trader_correl($consultaX,$consultaY);
-
+    echo $mediaX."\n".$mediaY;
 }
 desconectar($conn);
+function obtenerMedia($arreglo){
+    $valor=0;
+    $longitud=0;
+    while ($fila = mysqli_fetch_row($arreglo)) {
+        $valor=$valor +$fila[0];
+        $longitud++;
+    }
+    return $valor/$longitud;
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -86,7 +85,7 @@ desconectar($conn);
 </head>
 <body>
 <div>
-    <label><?php echo $variable;?></label>
+
 </div>
 </body>
 </html>

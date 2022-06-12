@@ -32,7 +32,6 @@ html:5
 <?php
 if ($resultado = mysqli_query($conn, $consulta)) {
     /* obtener el array asociativo */
-    $numero=0;
     while ($fila = mysqli_fetch_row($resultado)) {?>
 
         <tr>
