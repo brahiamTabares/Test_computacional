@@ -1,56 +1,67 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="gb18030">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="Refresh" content="http://localhost/php_test_computacional/GUI/encuesta/encuesta.html">
-    <title>Document</title>
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Refresh" content="../GUI/encuesta/encuesta.html">
+    <title>Encuesta</title>
+    <link rel="stylesheet" href="../ejercicios/styles/styleEncuesta.css">
 </head>
+
 <body>
+    <form class="form-encuesta" action="../../include/GuardarEncuesta.php" method="POST">
+        <h3>Test Computacional</h3><br>
+        <p>Responda las siguientes preguntas seleccionando un valor de [0-5].</p>
+        <p>Siendo 5 muy de acuerdo y 0 muy en desacuerdo.</p><br>
+        <div id="pregunta">
+            <!-- Lista de selecci贸n -->
+            <h4>1. &iquest;Consideras que tienes la habilidad para manejar herramientas inform&aacute;ticas?:&nbsp;</h4>
 
-<form action="../../include/GuardarEncuesta.php" method="POST">
-    <div>
-        <!-- Lista de selección -->
-        PREGUNTA 1 :
-        <select name="comboPregunta1">
-            <!-- Opciones de la lista -->
-            <option value="0"> 0 </option>
-            <option value="1"> 1 </option>
-            <option value="2"> 2 </option>
-            <option value="3"> 3 </option>
-            <option value="4"> 4 </option>
-            <option value="5"selected> 5 </option><!-- Opción por defecto -->
-        </select>
-    </div>
-    <div>
-        <!-- Lista de selección -->
-        PREGUNTA 2:
-        <select name="comboPregunta2">
-            <!-- Opciones de la lista -->
-            <option value="0"> 0 </option>
-            <option value="1"> 1 </option>
-            <option value="2"> 2 </option>
-            <option value="3"> 3 </option>
-            <option value="4"> 4 </option>
-            <option value="5"selected> 5 </option><!-- Opción por defecto -->
-        </select>
-    </div>
-    <div>
-        <!-- Lista de selección -->
-        PREGUNTA 3:
-        <select name="comboPregunta3">
-            <!-- Opciones de la lista -->
-            <option value="0"> 0 </option>
-            <option value="1"> 1 </option>
-            <option value="2"> 2 </option>
-            <option value="3"> 3 </option>
-            <option value="4"> 4 </option>
-            <option value="5"selected> 5 </option><!-- Opción por defecto -->
-        </select>
-    </div>
-    <input type="submit" value="Enviar encuesta" style="margin-top: 4px" name="enviar_encuesta">
-</form>
+            <select  name="comboPregunta1">
+                <!-- Opciones de la lista -->
+                <option value="0">0</option>
 
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option selected="selected" value="5">5</option><!-- Opci贸n por defecto -->
+            </select>
+        </div>
+
+        <div id="pregunta">
+            <h4>
+                2. &iquest;Consideras que te fue bien en el test ? :
+            </h4><select name="comboPregunta2">
+                <!-- Opciones de la lista -->
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option selected="selected" value="5">5</option><!-- Opci贸n por defecto -->
+            </select>
+        </div>
+
+        <div id="pregunta">
+            <h4>
+                3. &iquest;Las instrucciones fueron claras ?&nbsp;:
+            </h4><select name="comboPregunta3">
+                <!-- Opciones de la lista -->
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option selected="selected" value="5">5</option><!-- Opci贸n por defecto -->
+            </select></div>
+
+
+
+        <input class="boton" name="enviar_encuesta" style="margin-top: 4px" type="submit" value="Enviar Encuesta" />
+    </form>
 </body>
+
 </html>

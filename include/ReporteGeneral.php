@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * Test computacional
+   Brahiam David Tabares Vallejo
+   Sandra Milena Quintero Leal
+   Juan Alvaro Diaz Trujillo
+   pagina que permite traer de la base de datos los datos del test y permite mostrarlos en un reporte de los requerimientos funcionales 
+   */
 include 'db.php';
 $conn=conectar();
 //Promedio global por cada ejercicio del test
@@ -27,46 +35,51 @@ GROUP BY pregunta ORDER BY 1;";
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Reporte General</title>
+        <link rel="stylesheet" href="../GUI/ejercicios/styles/styleReporteGeneral.css">
+
     </head>
     <body>
-    <center>
     <h1>Reportes Generales</h1>
+    <div id="principal">
+    
     <!-- Formulario simple que enviará una petición POST -->
-    <form action="../include/coeficiente.php" method="POST">
-        <div>
-            <br><h3>Promedio global por cada ejercicio del test</h3>
-        <table style="border: solid">
-            <thead>
-            <tr>
-                <th>Ejercicio</th>
-                <th>Promedio</th>
+    <form class="form-reporte" action="../include/coeficiente.php" method="POST">
+        
+        <div id="seccion1">
+            <div id="T01">
+                <br><h3>Promedio global por cada ejercicio del test</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Ejercicio</th>
+                        <th>Promedio</th>
 
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            if ($resultado1 = mysqli_query($conn, $consulta1)) {
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    if ($resultado1 = mysqli_query($conn, $consulta1)) {
 
-            /* obtener el array asociativo */
-            while ($fila = mysqli_fetch_row($resultado1)) {?>
-            <tr>
-                <td><?php echo "Ejercicio ".substr( $fila[0], -1  )?></td>
-             <td><center><?php echo $fila[1]?></center></td>
-                </tr>
-        <?php
-    }
-                /* liberar el conjunto de resultados */
-                mysqli_free_result($resultado1);
-            }
-    ?>
-            </tbody>
-        </table>
-                </div>
+                    /* obtener el array asociativo */
+                    while ($fila = mysqli_fetch_row($resultado1)) {?>
+                        <tr>
+                        <td><?php echo "Ejercicio ".substr( $fila[0], -1  )?></td>
+                        <td><center><?php echo $fila[1]?></center></td>
+                        </tr>
+                    <?php
+                    }
+                        /* liberar el conjunto de resultados */
+                        mysqli_free_result($resultado1);
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
 
-                <div>
-                    <br><h3>Número de respuestas correctas e incorrectas por ejercicio de todos los usuarios</h3>
-                <table style="border: solid">
+            <div id="T02">
+            <br><h3>Número de respuestas correctas e incorrectas por ejercicio de todos los usuarios</h3>
+            <table>
                 <thead>
                 <tr>
                     <th>Ejercicio</th>
@@ -93,12 +106,44 @@ GROUP BY pregunta ORDER BY 1;";
                 }
                     ?>
                     </tbody>
-                    </table>
-                    </div>
+            </table>
+            </div>       
+            
+            <div id="T03">
+                <br><h3>Promedio de cada una de las respuestas de la encuesta de los usuarios</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Pregunta</th>
+                        <th>Calificación</th>
 
-        <div>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    if ($resultado4 = mysqli_query($conn, $consulta4)) {
+
+                        /* obtener el array asociativo */
+                        while ($fila = mysqli_fetch_row($resultado4)) {?>
+                            <tr>
+                                <td><?php echo "Pregunta ".substr( $fila[0], -1  )?></td>
+                                <td><center><?php echo $fila[1]?></center></td>
+
+                            </tr>
+                            <?php
+                        }
+                        /* liberar el conjunto de resultados */
+                        mysqli_free_result($resultado4);
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="seccion2">           
+            <div id="T04">
             <br><h3>Listado ordenado de los usuarios (mayor a menor) con base en la nota del test</h3>
-            <table style="border: solid">
+            <table>
                 <thead>
                 <tr>
                     <th>Cedula</th>
@@ -125,41 +170,13 @@ GROUP BY pregunta ORDER BY 1;";
                 ?>
                 </tbody>
             </table>
+            </div>
         </div>
-
-        <div>
-            <br><h3>Promedio de cada una de las respuestas de la encuesta de los usuarios</h3>
-            <table style="border: solid">
-                <thead>
-                <tr>
-                    <th>Pregunta</th>
-                    <th>Calificación</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                if ($resultado4 = mysqli_query($conn, $consulta4)) {
-
-                    /* obtener el array asociativo */
-                    while ($fila = mysqli_fetch_row($resultado4)) {?>
-                        <tr>
-                            <td><?php echo "Pregunta ".substr( $fila[0], -1  )?></td>
-                            <td><center><?php echo $fila[1]?></center></td>
-
-                        </tr>
-                        <?php
-                    }
-                    /* liberar el conjunto de resultados */
-                    mysqli_free_result($resultado4);
-                }
-                ?>
-                </tbody>
-            </table>
-        </div>
-        <input type="submit" value="Coeficiente de correlación" style="margin-top: 4px" name="realizar_coeficiente">
+            <p></p>
+             <input class="boton" type="submit" value="Coeficiente de correlación" style="margin-top: 4px" name="realizar_coeficiente">
+           
     </form>
-</center>
+</div >
     </body>
     </html>
 

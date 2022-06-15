@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial;
+    font-size: 20px;
+    background-image: url(../imagenes/Interfaz.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+div#general{
+    width: 750px;
+    height: 650px;
+    background: #4e4d4d;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 7px 13px 37ox #000;
+    padding: 10px 20px;
+    border-top: #c50707;
+    color: white;
+   
+}
+
+div#tablero{
+    margin-top: 20px;
+    margin-left: 10px;
+   float: left;
+    width: 425px;
+    height: 440px;
+    border: dashed;
+    color: #000;
+}
+
+div#lado_derecho{
+    margin-right: 10px;
+}
+
+div#texto_descripcion{
+    margin:0;
+    text-align: center;
+    width: 280px;
+    height: 150px;
+    float: right;
+    margin-top: 20px;
+}
+
+
+div#botones_resultado{
+    width: 425px;
+    height: 40px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    color: #000;
+}
+#resultado {
+    border: dashed;
+    height: 25px;
+    width: 400px;
+}
+
+div#botones_mover{
+    margin-top: 20px;
+    width: 425px;
+    height: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 16px;
+    text-align: center;
+    
+    
+}
+div#respuesta_ejercicio{
+    width: 280px;
+    height: 100px;
+    float: right;
+    font-size: 30px;
+    margin-top: 120px;
+    text-align: center;
+    color: rgb(196, 181, 51) ;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+div#botones_principales {
+    float: right;
+    width: 280px;
+    height: 120px;
+    border: none;
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 90px;
+    text-align: center;
+}
+
+.botones{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #c50707;
+    border-radius: 6px;
+    border: 2px solid #420303;
+    margin-bottom: 16px;
+    
+    
+  }
+  .botones:hover{
+    color: #c50707;
+    background-color: #ffffff;
+  }

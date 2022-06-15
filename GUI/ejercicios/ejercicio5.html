@@ -1,96 +1,105 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="Refresh" content="http://localhost/php_test_computacional/GUI/ejercicios/ejercicio5.html">
-  <title>Title</title>
-  <link rel="stylesheet" href="../style.css" />
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Ejercicio #5</title>
+  <link rel="stylesheet" href="styles/styleEjercicio.css" />
 </head>
 
 <body>
-  <center>
-    <table style="border: dashed" height="400" width="400">
-      <tr>
-        <th>
-          <img id="00" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-        <th>
-          <img id="01" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-        <th>
-          <img id="02" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-        <th>
-          <img id="03" src="imagenes/cielo.jpg"  height="100" width="100" />
-        </th>
-      </tr>
-      <tr>
-        <th>
-          <img id="10" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-        <th>
-          <img id="11" src="imagenes/princesa peach.png" style="border: solid" height="100" width="100" />
-        </th>
-        <th>
-          <img id="12" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-        <th>
-          <img id="13" src="imagenes/cielo.jpg"  height="100" width="100" />
-        </th>
-      </tr>
-      <tr>
-        <th>
-          <img id="20" src="imagenes/cielo.jpg"  height="100" width="100" />
-        </th>
-        <th>
-          <img id="21" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-        <th>
-          <img id="22" src="imagenes/mario.jpg" style="border: solid" height="100" width="100" />
-        </th>
-        <th>
-          <img id="23" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-      </tr>
-      <tr>
-        <th>
-          <img id="30" src="imagenes/cielo.jpg"  height="100" width="100" />
-        </th>
-        <th>
-          <img id="31" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-        <th>
-          <img id="32" src="imagenes/cielo.jpg"  height="100" width="100" />
-        </th>
-        <th>
-          <img id="33" src="imagenes/cielo.jpg" height="100" width="100" />
-        </th>
-      </tr>
-    </table>
-
-    <div>
-      <h1>
-        Ejercicio #5:
-        <button className="boton_arriba" onClick="moverTo(x,y-1,letraA)">
-          <img type="image" src="imagenes/arriba.jpg" style="border: double" height="40" width="40" />
-        </button>
-
-        <button className="boton_izquierda" onClick="moverTo(x-1,y,letraB);">
-          <img type="image" src="imagenes/izquierda.jpg" style="border: double" height="40" width="40" />
-        </button>
-
-        <button className="boton_abajo" onClick="moverTo(x,y+1,letraC);">
-          <img type="image" src="imagenes/abajo.jpg" style="border: double" height="40" width="40" />
-        </button>
-
-        <button className="boton_derecha" onClick="moverTo(x+1,y,letraD)">
-          <img type="image" src="imagenes/derecha.jpg" style="border: double" height="40" width="40" />
-        </button>
-      </h1>
+  <div id="general">
+    <div id="tablero">
+      <table height="400" width="400">
+        <tr>
+          <th>
+            <img id="00" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="01" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="02" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="03" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <img id="10" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="11" src="imagenes/princesa peach.png" style="border: solid" height="100" width="100" />
+          </th>
+          <th>
+            <img id="12" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="13" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <img id="20" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="21" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="22" src="imagenes/mario.jpg" style="border: solid" height="100" width="100" />
+          </th>
+          <th>
+            <img id="23" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <img id="30" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="31" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="32" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+          <th>
+            <img id="33" src="imagenes/rojo.jpg" height="100" width="100" />
+          </th>
+        </tr>
+      </table>
     </div>
-    <div>
+    <div id="lado_derecho">
+      <div id="texto_descripcion">
+        <h1>Ejercicio #5:</h1><br>
+        <h3>
+          <p>Indícale a Mario con las flechas el camino para llegar hasta la princesa Peach</p>
+        </h3>
+      </div>
+      <div id="respuesta_ejercicio">
+        <p id="respuesta"></p>
+      </div>
+
+      <div id="botones_principales">
+        <button class="botones" id="borrar">Borrar</button>
+        <input class="botones" type="button" value="Validar" style="margin-top: 4px" id="validar"
+          onclick="validar(x,y)" />
+
+        <form class="form-botones_ejercicio" type="hidden" action="../../include/GuardarEjercicio.php" method="POST">
+
+          <input class="botones" type="submit" value="Siguiente" style="margin-top: 4px" id="siguiente"
+            name="siguiente" />
+          <input type="hidden" id="POST-puntuacion" type="number" name="POST-puntuacion">
+          <input type="hidden" id="ejercicio" type="text" name="ejercicio">
+
+        </form>
+
+      </div>
+    </div>
+
+    <div id="botones_resultado">
       <table id="resultado">
         <tr id="resultado_flechas">
           <th>
@@ -144,20 +153,25 @@
         </tr>
       </table>
     </div>
-    <div class="prueba">
-      <button id="borrar">Borrar</button>
-      <input type="button" value="Validar" style="margin-top: 4px" id="validar" onclick="validar(x,y)" />
+    <div id="botones_mover">
+      <button className="boton_arriba" onClick="moverTo(x,y-1,letraA)">
+        <img type="image" src="imagenes/arriba.png" height="40" width="40" />
+      </button>
 
-      <form type="hidden" action="../../include/GuardarEjercicio.php" method="POST">
+      <button className="boton_izquierda" onClick="moverTo(x-1,y,letraB);">
+        <img type="image" src="imagenes/izquierda.png" height="40" width="40" />
+      </button>
 
-        <input type="submit" value="Siguiente" style="margin-top: 4px" id="siguiente" name="siguiente"/>
-        <input type="hidden" id="POST-puntuacion" type="number" name="POST-puntuacion">
-        <input type="hidden" id="ejercicio" type="text" name="ejercicio">
+      <button className="boton_abajo" onClick="moverTo(x,y+1,letraC);">
+        <img type="image" src="imagenes/abajo.png" height="40" width="40" />
+      </button>
 
-      </form>
-      
+      <button className="boton_derecha" onClick="moverTo(x+1,y,letraD)">
+        <img type="image" src="imagenes/derecha.png" height="40" width="40" />
+      </button>
+
     </div>
-  </center>
+  </div>
   <script>
     let inicioF = 2;
     let inicioC = 2;
@@ -174,7 +188,7 @@
     let bandera = true;
     var array = Array(4);
     let resultado;
-    
+
     for (let index = 0; index < array.length; index++) {
       array[index] = new Array(4);
 
@@ -206,19 +220,19 @@
         if (nx >= 0 && nx <= maxX && ny >= 0 && ny <= maxY && cont <= 25 && bandera) {
           if (letra == "A" && flecha != null) {
             original = flecha.getAttribute("src");
-            flecha.setAttribute("src", "imagenes/arriba.jpg");
+            flecha.setAttribute("src", "imagenes/arriba.png");
           } else {
             if (letra == "B" && flecha != null) {
               original = flecha.getAttribute("src");
-              flecha.setAttribute("src", "imagenes/izquierda.jpg");
+              flecha.setAttribute("src", "imagenes/izquierda.png");
             } else {
               if (letra == "C" && flecha != null) {
                 original = flecha.getAttribute("src");
-                flecha.setAttribute("src", "imagenes/abajo.jpg");
+                flecha.setAttribute("src", "imagenes/abajo.png");
               } else {
                 if (letra == "D" && flecha != null) {
                   original = flecha.getAttribute("src");
-                  flecha.setAttribute("src", "imagenes/derecha.jpg");
+                  flecha.setAttribute("src", "imagenes/derecha.png");
                 }
               }
             }
@@ -227,19 +241,19 @@
         } else {
           if (letra == "A" && flecha != null) {
             original = flecha.getAttribute("src");
-            flecha.setAttribute("src", "imagenes/arriba.jpg");
+            flecha.setAttribute("src", "imagenes/arriba.png");
           } else {
             if (letra == "B" && flecha != null) {
               original = flecha.getAttribute("src");
-              flecha.setAttribute("src", "imagenes/izquierda.jpg");
+              flecha.setAttribute("src", "imagenes/izquierda.png");
             } else {
               if (letra == "C" && flecha != null) {
                 original = flecha.getAttribute("src");
-                flecha.setAttribute("src", "imagenes/abajo.jpg");
+                flecha.setAttribute("src", "imagenes/abajo.png");
               } else {
                 if (letra == "D" && flecha != null) {
                   original = flecha.getAttribute("src");
-                  flecha.setAttribute("src", "imagenes/derecha.jpg");
+                  flecha.setAttribute("src", "imagenes/derecha.png");
                 }
               }
             }
@@ -277,21 +291,21 @@
       document.getElementById('siguiente').style.visibility = "visible";//mostrar
 
       if (bandera && 1 == fila && 1 == columna) {
-        alert("Correcto");//MANDAR A PHP
-        respuesta=1;
+        document.getElementById('respuesta').innerHTML = "Correcto";
+        respuesta = 1;
       } else {
-        alert("Incorrecto");//MANDAR A PHP
-        respuesta=0;
+        document.getElementById('respuesta').innerHTML = "Incorrecto";
+        respuesta = 0;
       }
       document.getElementById('POST-puntuacion').value = respuesta;
       document.getElementById('ejercicio').value = '5';
       marcar();
     }
     let refresh = document.getElementById('borrar');
-          refresh.addEventListener('click', _ => {
-            location.reload();
-})
-    
+    refresh.addEventListener('click', _ => {
+      location.reload();
+    })
+
     moverTo(inicioC, inicioF);
   </script>
 </body>

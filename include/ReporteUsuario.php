@@ -5,24 +5,23 @@ session_start();
 $id=session_id();
 $consulta = "select ejercicio, puntuacion from resultado where Usuario_id=$id;";
 ?>
-html:5
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="Refresh" content="http://localhost/php_test_computacional/include/ReporteUsuario.php">
-    <title>Document</title>
+    <title>Reporte del usuario</title>
+    <link rel="stylesheet" href="../GUI/ejercicios/styles/styleReporteUsuario.css">
 </head>
 <body>
-<center>
-<h1>Resultados</h1><br>
+<div id="principal">
+<h3>Resultados</h3><br>
 <!-- Formulario simple que enviará una petición POST -->
-<form action="../GUI/encuesta/encuesta.html" method="POST">
-        <table style="border: solid">
+<form class="form-reporte" action="../GUI/encuesta/encuesta.html" method="POST">
+        <table >
             <thead>
-                <tr>
+                <tr >
                     <th>Ejercicio</th>
                     <th>Resultado</th>
                     <th>Puntuación</th>
@@ -34,7 +33,7 @@ if ($resultado = mysqli_query($conn, $consulta)) {
     /* obtener el array asociativo */
     while ($fila = mysqli_fetch_row($resultado)) {?>
 
-        <tr>
+        <tr class="body-tr">
                     <td><?php echo "Ejercicio ".substr( $fila[0], -1  )?></td>
                     <td><center><?php
                             if($fila[1]==0){
@@ -52,9 +51,9 @@ if ($resultado = mysqli_query($conn, $consulta)) {
         </table>
 
 
-    <input type="submit" value="Realizar encuesta" style="margin-top: 4px" name="realizar_encuesta">
+    <input class="boton"type="submit" value="Realizar encuesta" style="margin-top: 4px" name="realizar_encuesta">
 </form>
-    </center>
+    </div>
 </body>
 </html>
 <?php
